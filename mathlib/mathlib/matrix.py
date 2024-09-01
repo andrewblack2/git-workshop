@@ -68,18 +68,19 @@ class Matrix:
         
         return np.linalg.det(self.data)
         
-        '''
-        # 2 by 2 matrix
-        if len(self.data) == 2:
-            return self.data[0][0] * self.data[1][1] - self.data[0][1] * self.data[1][0]
-        
-        # 3 by 3 matrix and larger
-        '''
         
 
     # TODO: Person 1 & 2 - Implement inverse calculation (inverse)
     # Either code together or have one person code and the other review
     # ...
+    def inverse(self):
+        """
+        calculating the inverse of a matrix
+        """
+        if(len(self.data) != len(self.data[0])):
+            raise ValueError("Matrix must be square")
+        
+        return np.linalg.inv(self.data)
 
     # TODO: Person 3 - Implement a function that concatenates two matrices horizontally (hconcat)
 
