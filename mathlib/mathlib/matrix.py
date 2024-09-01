@@ -83,6 +83,35 @@ class Matrix:
 
     # TODO: Person 3 - Implement a function that concatenates two matrices horizontally (hconcat)
 
+    def __hconcat__(self, other):
+        """
+        Horizontally concatenate this matrix with another
+        """
+        if len(self.data) != len(other.data):
+            raise ValueError("Matrices must have equal number of rows")
+        
+        return Matrix([self.data[r] + other.data[r] for r in len(self.data)])
+
     # TODO: Person 3 - Implement a function that concatenates two matrices vertically (vconcat)
 
+    def __vconcat__(self, other):
+        """
+        Horizontally concatenate this matrix with another
+        """
+        if len(self.data[0]) != len(other.data[0]):
+            raise ValueError("Matrices must have equal number of columns")
+        
+        
+        return Matrix(self.data + other.data)
+
     # TODO: Person 3 & 4 - Implement matrix eigenvalues and eigenvectors (eigen)
+
+    def __eigenvalues__(self, other):
+        """
+        Horizontally concatenate this matrix with another
+        """
+        if (len(self.data[0]) != len(other.data[0])) or (len(self.data) != len(other.data)):
+            raise ValueError("Matrices must be square")
+        
+        
+        return np.linal.eig(np.array(self.data))
