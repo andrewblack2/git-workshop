@@ -53,7 +53,14 @@ class Matrix:
         return Matrix(self.data)
         
 
-    # TODO: Person 2 - Implement matrix transposition (transpose)
+
+    def transpose(self):
+        """
+        Transpose function for Matrix
+        """
+        n = len(self.data)
+        m = len(self.data[0])
+        self.data = [[self.data[i][j] for i in range(n)] for j in range(m)]
 
     # TODO: Person 1 & 2 - Implement determinant calculation (determinant)
     # Either code together or have one person code and the other review
@@ -95,6 +102,7 @@ class Matrix:
 
     # TODO: Person 3 - Implement a function that concatenates two matrices vertically (vconcat)
 
+
     def __vconcat__(self, other):
         """
         Horizontally concatenate this matrix with another
@@ -116,3 +124,4 @@ class Matrix:
         
         
         return np.linal.eig(np.array(self.data))
+
