@@ -4,8 +4,14 @@ def validate_matrix(matrix):
     :param matrix: 2D list representing the matrix.
     :return: True if valid, raises ValueError otherwise.
     """
-    # TODO: Person 4 - Implement matrix validation logic
-    pass
+    # Person 4 - Implement matrix validation logic
+    if (type(matrix.data)) == list and (type(matrix.data[0]) == list):
+        raise ValueError("Invalid matrix form")
+    
+    size = len(matrix.data[0])
+    for row in matrix:
+        if len(row) != size:
+            raise ValueError("Row lengths are not consistent")
 
 def check_dimensions(matrix1, matrix2):
     """
@@ -15,7 +21,8 @@ def check_dimensions(matrix1, matrix2):
     :return: True if dimensions are compatible, raises ValueError otherwise.
     """
     # TODO: Person 4 - Implement dimension check logic
-    pass
+    if len(matrix1[0]) != len(matrix2):
+        raise ValueError("Matrix dimensions are not compatable")
 
 def identity_matrix(size):
     """
@@ -23,8 +30,13 @@ def identity_matrix(size):
     :param size: The number of rows/columns for the identity matrix.
     :return: Identity matrix as a 2D list.
     """
-    # TODO: Person 4 - Implement identity matrix creation
-    pass
+    base = []
+    for i in range(size):
+        row = [0] * size
+        row[i] = 1
+        base.append(row)
+
+    return base
 
 def zero_matrix(rows, cols):
     """
@@ -33,8 +45,12 @@ def zero_matrix(rows, cols):
     :param cols: Number of columns.
     :return: Zero matrix as a 2D list.
     """
-    # TODO: Person 4 - Implement zero matrix creation
-    pass
+    base = []
+    for i in range(rows):
+        row = [0] * cols
+        base.append(row)
+
+    return base
 
 def minor(matrix, row, col):
     """
@@ -44,11 +60,16 @@ def minor(matrix, row, col):
     :param col: The column to remove.
     :return: The minor matrix as a 2D list.
     """
-    # TODO: Person 3 & 4 - Implement minor calculation
-    # Either code together or have one person code and the other review
-    # If coding together, use pair programming & co-author the commit (git commit -m "message" -m "Co-authored-by: name <email>")
-    # If reviewing, leave comments on what you think can be improved
-    pass
+    base = []
+    for r in matrix:
+        row = []
+        for c in row:
+            if r == row or c == col:
+                row.append(matrix.data[r][c])
+
+        base.append(row)
+
+    return base
 
 def cofactor(matrix):
     """
@@ -56,8 +77,14 @@ def cofactor(matrix):
     :param matrix: 2D list representing the matrix.
     :return: Cofactor matrix as a 2D list.
     """
-    # TODO: Person 3 & Person 4 - Implement cofactor calculation
-    # Either code together or have one person code and the other review
-    # ...
-    pass
+    base = []
+    for r in matrix:
+        row = []
+        for c in row:
+            if r == row or c == col:
+                row.append(matrix.data[r][c])
+
+        base.append(row)
+
+    return base
 
