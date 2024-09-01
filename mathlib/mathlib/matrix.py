@@ -37,7 +37,14 @@ class Matrix:
 
     # TODO: Person 1 - Implement matrix outer product (__matmul__)
 
-    # TODO: Person 2 - Implement matrix transposition (transpose)
+
+    def transpose(self):
+        """
+        Transpose function for Matrix
+        """
+        n = len(self.data)
+        m = len(self.data[0])
+        self.data = [[self.data[i][j] for i in range(n)] for j in range(m)]
 
     # TODO: Person 1 & 2 - Implement determinant calculation (determinant)
     # Either code together or have one person code and the other review
