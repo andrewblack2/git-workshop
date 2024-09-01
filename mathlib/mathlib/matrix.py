@@ -1,3 +1,5 @@
+import numpy as np
+
 class Matrix:
     """
     A class to represent a matrix.
@@ -40,6 +42,10 @@ class Matrix:
         """
         Compute the outer product of two matrices
         """
+        # check dimensions
+        if len(self.data) != len(other.data) or len(self.data[0]) != len(other.data[0]):
+            raise
+        
         for i in range(len(self.data)):
             for j in range(len(self.data[0])):
                 self.data[i][j] *= other.data[i][j]
@@ -53,6 +59,23 @@ class Matrix:
     # Either code together or have one person code and the other review
     # If coding together, use pair programming & co-author the commit (git commit -m "message" -m "Co-authored-by: name <email>")
     # If reviewing, leave comments on what you think can be improved
+    def determinant(self):
+        """
+        calculating the determinant of a matrix
+        """
+        if(len(self.data) != len(self.data[0])):
+            raise ValueError("Matrix must be square")
+        
+        return np.linalg.det(self.data)
+        
+        '''
+        # 2 by 2 matrix
+        if len(self.data) == 2:
+            return self.data[0][0] * self.data[1][1] - self.data[0][1] * self.data[1][0]
+        
+        # 3 by 3 matrix and larger
+        '''
+        
 
     # TODO: Person 1 & 2 - Implement inverse calculation (inverse)
     # Either code together or have one person code and the other review
