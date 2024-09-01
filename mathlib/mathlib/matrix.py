@@ -36,6 +36,16 @@ class Matrix:
 
 
     # TODO: Person 1 - Implement matrix outer product (__matmul__)
+    def __matmul__(self, other):
+        """
+        Compute the outer product of two matrices
+        """
+        for i in range(len(self.data)):
+            for j in range(len(self.data[0])):
+                self.data[i][j] *= other.data[i][j]
+    
+        return Matrix(self.data)
+        
 
     # TODO: Person 2 - Implement matrix transposition (transpose)
 
